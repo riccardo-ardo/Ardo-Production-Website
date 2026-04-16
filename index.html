@@ -100,7 +100,7 @@ body.ch .cring{width:48px;height:48px;border-color:rgba(34,211,238,.55)}
 .btn-mcta{display:flex;align-items:center;justify-content:center;padding:18px;border-radius:16px;background:linear-gradient(135deg,#a78bfa,#22d3ee);color:#06060a;font-family:var(--fd);font-size:15px;font-weight:700;text-decoration:none;letter-spacing:.02em}
 
 /* ===================== HERO ===================== */
-.hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:80px 52px 100px;overflow:hidden}
+.hero{position:relative;min-height:auto;display:flex;align-items:center;padding:80px 52px 100px;overflow:hidden}
 .hgrid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:80px 80px;mask-image:radial-gradient(ellipse 70% 60% at 50% 40%,black 20%,transparent 80%)}
 .orb{position:absolute;border-radius:50%;filter:blur(100px);pointer-events:none}
 .o1{width:700px;height:700px;background:radial-gradient(circle,rgba(167,139,250,.12) 0%,transparent 65%);top:-250px;left:-150px;animation:od 12s ease-in-out infinite}
@@ -939,6 +939,15 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
     if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'})}
   });
 });
+</script>
+
+  <script>
+function notifyHeight(){
+  const h = document.documentElement.scrollHeight;
+  window.parent.postMessage({type:'setHeight',height:h},'*');
+}
+window.addEventListener('load', notifyHeight);
+window.addEventListener('resize', notifyHeight);
 </script>
 </body>
 </html>
