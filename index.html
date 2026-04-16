@@ -1015,22 +1015,38 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
 
 <script>
 function notifyHeight() {
+  const body = document.body;
+  const html = document.documentElement;
+
   const h = Math.max(
-    document.body.scrollHeight,
-    document.documentElement.scrollHeight,
-    document.body.offsetHeight,
-    document.documentElement.offsetHeight,
-    document.documentElement.clientHeight
+    body.scrollHeight,
+    body.offsetHeight,
+    body.clientHeight,
+    html.scrollHeight,
+    html.offsetHeight,
+    html.clientHeight
   );
+
   window.parent.postMessage({ type: 'setHeight', height: h }, '*');
 }
 
 window.addEventListener('load', notifyHeight);
 window.addEventListener('resize', notifyHeight);
 
-setTimeout(notifyHeight, 300);
-setTimeout(notifyHeight, 1000);
+if (document.fonts && document.fonts.ready) {
+  document.fonts.ready.then(notifyHeight);
+}
+
+setTimeout(notifyHeight, 200);
+setTimeout(notifyHeight, 600);
+setTimeout(notifyHeight, 1200);
 setTimeout(notifyHeight, 2000);
+
+if ('ResizeObserver' in window) {
+  const ro = new ResizeObserver(() => notifyHeight());
+  ro.observe(document.body);
+  ro.observe(document.documentElement);
+}
 </script>
 </body>
 </html>
