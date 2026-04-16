@@ -814,29 +814,58 @@ footer{padding:60px 52px 40px;border-top:.5px solid var(--b);background:var(--bg
       </div>
     </div>
     <!-- Desktop form -->
-    <form class="cform cform-d" onsubmit="return false;" style="display:flex;flex-direction:column;gap:16px">
-      <div class="frow">
-        <div class="fg"><label>Full Name</label><input type="text" placeholder="Riccardo Montali"></div>
-        <div class="fg"><label>Email</label><input type="email" placeholder="hello@brand.com"></div>
-      </div>
-      <div class="frow">
-        <div class="fg"><label>Company / Brand</label><input type="text" placeholder="Your Brand"></div>
-        <div class="fg"><label>Phone</label><input type="tel" placeholder="+27 00 000 0000"></div>
-      </div>
-      <div class="fg"><label>What do you need?</label>
-        <select><option value="" disabled selected>Select a discipline</option><option>Brand Activation</option><option>Expo Stand Design</option><option>Set Design</option><option>3D Rendering</option><option>Graphic Design</option><option>Website Design</option><option>Wix App / Widget Development</option><option>Multiple Disciplines</option></select>
-      </div>
-      <div class="frow">
-        <div class="fg"><label>Budget Range</label>
-          <select><option value="" disabled selected>Estimated budget</option><option>Under R25 000</option><option>R25 000 – R75 000</option><option>R75 000 – R200 000</option><option>R200 000+</option><option>Let's discuss</option></select>
-        </div>
-        <div class="fg"><label>Timeline</label>
-          <select><option value="" disabled selected>When do you need it?</option><option>ASAP / Under 2 weeks</option><option>2–4 weeks</option><option>1–2 months</option><option>3+ months</option><option>Planning phase</option></select>
-        </div>
-      </div>
-      <div class="fg"><label>Project Description</label><textarea placeholder="Tell us what you're building, the goals, the audience, and anything else that matters..."></textarea></div>
-      <button type="submit" class="btn-sub">Send Brief →</button>
-    </form>
+<form class="cform cform-d" id="desktopForm" action="https://formspree.io/f/xqewpzle" method="POST" style="display:flex;flex-direction:column;gap:16px">
+  <div class="frow">
+    <div class="fg"><label>Full Name</label><input type="text" name="full_name" placeholder="Riccardo Montali"></div>
+    <div class="fg"><label>Email</label><input type="email" name="email" placeholder="hello@brand.com"></div>
+  </div>
+  <div class="frow">
+    <div class="fg"><label>Company / Brand</label><input type="text" name="company" placeholder="Your Brand"></div>
+    <div class="fg"><label>Phone</label><input type="tel" name="phone" placeholder="+27 00 000 0000"></div>
+  </div>
+  <div class="fg"><label>What do you need?</label>
+    <select name="service">
+      <option value="" disabled selected>Select a discipline</option>
+      <option>Brand Activation</option>
+      <option>Expo Stand Design</option>
+      <option>Set Design</option>
+      <option>3D Rendering</option>
+      <option>Graphic Design</option>
+      <option>Website Design</option>
+      <option>Wix App / Widget Development</option>
+      <option>Multiple Disciplines</option>
+    </select>
+  </div>
+  <div class="frow">
+    <div class="fg"><label>Budget Range</label>
+      <select name="budget">
+        <option value="" disabled selected>Estimated budget</option>
+        <option>Under R25 000</option>
+        <option>R25 000 – R75 000</option>
+        <option>R75 000 – R200 000</option>
+        <option>R200 000+</option>
+        <option>Let's discuss</option>
+      </select>
+    </div>
+    <div class="fg"><label>Timeline</label>
+      <select name="timeline">
+        <option value="" disabled selected>When do you need it?</option>
+        <option>ASAP / Under 2 weeks</option>
+        <option>2–4 weeks</option>
+        <option>1–2 months</option>
+        <option>3+ months</option>
+        <option>Planning phase</option>
+      </select>
+    </div>
+  </div>
+  <div class="fg"><label>Project Description</label><textarea name="project_description" placeholder="Tell us what you're building, the goals, the audience, and anything else that matters..."></textarea></div>
+  <button type="submit" class="btn-sub">Send Brief →</button>
+</form>
+    <div id="thankYouDesktop" style="display:none;padding:48px 32px;text-align:center;border-radius:16px;background:var(--lg);border:.5px solid rgba(167,139,250,.2)">
+      <div style="font-size:32px;margin-bottom:16px">✦</div>
+      <div style="font-family:var(--fd);font-size:24px;font-weight:800;letter-spacing:-.04em;margin-bottom:12px">Thank you.</div>
+      <p style="color:var(--tm);font-size:15px;line-height:1.7">I'll review your brief and get back to you shortly.</p>
+    </div>
   </div>
 </section>
 
@@ -858,23 +887,53 @@ footer{padding:60px 52px 40px;border-top:.5px solid var(--b);background:var(--bg
 <div class="bs" id="bsh">
   <div class="sh"></div>
   <div class="st">Start a Project</div>
-  <form class="sform" onsubmit="return false;">
-    <div class="fg"><label>Full Name</label><input type="text" placeholder="Your name"></div>
-    <div class="fg"><label>Email</label><input type="email" placeholder="hello@brand.com"></div>
-    <div class="fg"><label>Company / Brand</label><input type="text" placeholder="Your brand"></div>
-    <div class="fg"><label>Phone</label><input type="tel" placeholder="+27 00 000 0000"></div>
-    <div class="fg"><label>What do you need?</label>
-      <select><option value="" disabled selected>Select a discipline</option><option>Brand Activation</option><option>Expo Stand Design</option><option>Set Design</option><option>3D Rendering</option><option>Graphic Design</option><option>Website Design</option><option>Wix App / Widget Development</option><option>Multiple Disciplines</option></select>
-    </div>
-    <div class="fg"><label>Budget Range</label>
-      <select><option value="" disabled selected>Estimated budget</option><option>Under R25 000</option><option>R25 000 – R75 000</option><option>R75 000 – R200 000</option><option>R200 000+</option><option>Let's discuss</option></select>
-    </div>
-    <div class="fg"><label>Timeline</label>
-      <select><option value="" disabled selected>When do you need it?</option><option>ASAP / Under 2 weeks</option><option>2–4 weeks</option><option>1–2 months</option><option>3+ months</option><option>Planning phase</option></select>
-    </div>
-    <div class="fg"><label>Project Description</label><textarea placeholder="Tell us what you're building..." style="min-height:80px"></textarea></div>
-    <button type="submit" class="btn-sub">Send Brief →</button>
-  </form>
+<form class="sform" id="sheetForm" action="https://formspree.io/f/xqewpzle" method="POST">
+  <div class="fg"><label>Full Name</label><input type="text" name="full_name" placeholder="Your name"></div>
+  <div class="fg"><label>Email</label><input type="email" name="email" placeholder="hello@brand.com"></div>
+  <div class="fg"><label>Company / Brand</label><input type="text" name="company" placeholder="Your brand"></div>
+  <div class="fg"><label>Phone</label><input type="tel" name="phone" placeholder="+27 00 000 0000"></div>
+  <div class="fg"><label>What do you need?</label>
+    <select name="service">
+      <option value="" disabled selected>Select a discipline</option>
+      <option>Brand Activation</option>
+      <option>Expo Stand Design</option>
+      <option>Set Design</option>
+      <option>3D Rendering</option>
+      <option>Graphic Design</option>
+      <option>Website Design</option>
+      <option>Wix App / Widget Development</option>
+      <option>Multiple Disciplines</option>
+    </select>
+  </div>
+  <div class="fg"><label>Budget Range</label>
+    <select name="budget">
+      <option value="" disabled selected>Estimated budget</option>
+      <option>Under R25 000</option>
+      <option>R25 000 – R75 000</option>
+      <option>R75 000 – R200 000</option>
+      <option>R200 000+</option>
+      <option>Let's discuss</option>
+    </select>
+  </div>
+  <div class="fg"><label>Timeline</label>
+    <select name="timeline">
+      <option value="" disabled selected>When do you need it?</option>
+      <option>ASAP / Under 2 weeks</option>
+      <option>2–4 weeks</option>
+      <option>1–2 months</option>
+      <option>3+ months</option>
+      <option>Planning phase</option>
+    </select>
+  </div>
+  <div class="fg"><label>Project Description</label><textarea name="project_description" placeholder="Tell us what you're building..." style="min-height:80px"></textarea></div>
+  <button type="submit" class="btn-sub">Send Brief →</button>
+</form>
+
+  <div id="thankYouSheet" style="display:none;padding:40px 24px;text-align:center">
+  <div style="font-size:32px;margin-bottom:16px">✦</div>
+  <div style="font-family:var(--fd);font-size:22px;font-weight:800;letter-spacing:-.04em;margin-bottom:12px">Thank you.</div>
+  <p style="color:var(--tm);font-size:15px;line-height:1.7">I'll review your brief and get back to you shortly.</p>
+</div>
 </div>
 
 
@@ -931,6 +990,19 @@ bsh.addEventListener('touchstart',e=>{sy=e.touches[0].clientY},{passive:true});
 bsh.addEventListener('touchend',e=>{if(e.changedTouches[0].clientY-sy>80)closeSheet()},{passive:true});
 
 
+  // FORM SUBMIT
+document.getElementById('desktopForm').addEventListener('submit',async function(e){
+  e.preventDefault();
+  await fetch(this.action,{method:'POST',body:new FormData(this),headers:{Accept:'application/json'}});
+  this.style.display='none';
+  document.getElementById('thankYouDesktop').style.display='block';
+});
+document.getElementById('sheetForm').addEventListener('submit',async function(e){
+  e.preventDefault();
+  await fetch(this.action,{method:'POST',body:new FormData(this),headers:{Accept:'application/json'}});
+  this.style.display='none';
+  document.getElementById('thankYouSheet').style.display='block';
+});
 
 // SMOOTH SCROLL
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
