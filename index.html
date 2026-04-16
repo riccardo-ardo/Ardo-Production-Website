@@ -1008,8 +1008,12 @@ document.getElementById('sheetForm').addEventListener('submit',async function(e)
 // SMOOTH SCROLL
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
   a.addEventListener('click',e=>{
-    const t=document.querySelector(a.getAttribute('href'));
-    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'})}
+    e.preventDefault();
+    const target = document.querySelector(a.getAttribute('href'));
+    if(!target) return;
+    // Get position of target relative to top of iframe document
+    const targetY = target.getBoundingClientRect().top + window.pageYOffset;
+    window.parent.postMessage({type:'scrollTo', y: targetY},'*');
   });
 });
 </script>
