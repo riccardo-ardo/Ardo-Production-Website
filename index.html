@@ -32,8 +32,8 @@
   --ease:cubic-bezier(0.16,1,0.3,1);
 }
 html{scroll-behavior:smooth;overflow-x:hidden}
-html, body { height: auto; min-height: 100%; }
-body{background:var(--bg);color:var(--t);font-family:var(--fb);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+html, body { height: 100%; }
+body { overflow-y: auto; }
 
 /* GRAIN */
 body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;opacity:0.28;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E")}
@@ -1008,11 +1008,8 @@ document.getElementById('sheetForm').addEventListener('submit',async function(e)
 // SMOOTH SCROLL
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
   a.addEventListener('click',e=>{
-    e.preventDefault();
-    const id = a.getAttribute('href').replace('#','');
-    const target = document.getElementById(id);
-    if(!target) return;
-    window.parent.postMessage({type:'scrollTo', y: target.offsetTop},'*');
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'})}
   });
 });
 </script>
