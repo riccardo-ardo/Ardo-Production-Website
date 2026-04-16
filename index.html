@@ -1009,11 +1009,11 @@ document.getElementById('sheetForm').addEventListener('submit',async function(e)
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
   a.addEventListener('click',e=>{
     e.preventDefault();
-    const target = document.querySelector(a.getAttribute('href'));
+    const id = a.getAttribute('href').replace('#','');
+    const target = document.getElementById(id);
     if(!target) return;
-    // Get position of target relative to top of iframe document
-    const targetY = target.getBoundingClientRect().top + window.pageYOffset;
-    window.parent.postMessage({type:'scrollTo', y: targetY},'*');
+    const y = target.offsetTop;
+    window.parent.postMessage({type:'scrollTo', y: y},'*');
   });
 });
 </script>
