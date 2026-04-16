@@ -32,6 +32,7 @@
   --ease:cubic-bezier(0.16,1,0.3,1);
 }
 html{scroll-behavior:smooth;overflow-x:hidden}
+html{scroll-behavior:smooth;overflow-x:hidden;overflow-y:scroll;}
 html, body { height: auto; min-height: 100%; }
 body{background:var(--bg);color:var(--t);font-family:var(--fb);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
 
@@ -1003,54 +1004,27 @@ document.getElementById('sheetForm').addEventListener('submit',async function(e)
   this.style.display='none';
   document.getElementById('thankYouSheet').style.display='block';
 });
+
+// SMOOTH SCROLL
+// SMOOTH SCROLL
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    e.preventDefault();
+    const id = a.getAttribute('href').replace('#','');
+    const target = document.getElementById(id);
+    if(!target) return;
+    target.scrollIntoView({behavior:'smooth', block:'start'});
+  });
+});
 </script>
 
-<script>
-function notifyHeight() {
-  const body = document.body;
-  const html = document.documentElement;
-
-  const h = Math.max(
-    body.scrollHeight,
-    body.offsetHeight,
-    body.clientHeight,
-    html.scrollHeight,
-    html.offsetHeight,
-    html.clientHeight
-  );
-
-  window.parent.postMessage({ type: 'setHeight', height: h }, '*');
+  <script>
+function notifyHeight(){
+  const h = document.documentElement.scrollHeight;
+  window.parent.postMessage({type:'setHeight',height:h},'*');
 }
-
 window.addEventListener('load', notifyHeight);
 window.addEventListener('resize', notifyHeight);
-
-if (document.fonts && document.fonts.ready) {
-  document.fonts.ready.then(notifyHeight);
-}
-
-setTimeout(notifyHeight, 200);
-setTimeout(notifyHeight, 600);
-setTimeout(notifyHeight, 1200);
-setTimeout(notifyHeight, 2000);
-
-if ('ResizeObserver' in window) {
-  const ro = new ResizeObserver(() => notifyHeight());
-  ro.observe(document.body);
-  ro.observe(document.documentElement);
-}
 </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
