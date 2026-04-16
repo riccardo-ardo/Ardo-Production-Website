@@ -1004,17 +1004,14 @@ document.getElementById('sheetForm').addEventListener('submit',async function(e)
   document.getElementById('thankYouSheet').style.display='block';
 });
 
-// SMOOTH SCROLL — iframe-aware
+// SMOOTH SCROLL — iframe postMessage
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
   a.addEventListener('click',e=>{
     const target=document.querySelector(a.getAttribute('href'));
     if(!target) return;
     e.preventDefault();
-    // Get the element's position relative to the top of the iframe document
-    const iframeTop = window.frameElement ? window.frameElement.getBoundingClientRect().top + window.scrollY : 0;
-    const targetTop = target.getBoundingClientRect().top + window.scrollY;
-    const scrollTo = iframeTop + targetTop;
-    window.parent.postMessage({type:'scrollTo', top: scrollTo},'*');
+    const rect=target.getBoundingClientRect();
+    window.parent.postMessage({type:'scrollTo', offset: rect.top},'*');
   });
 });
 </script>
