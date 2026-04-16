@@ -32,7 +32,7 @@
   --ease:cubic-bezier(0.16,1,0.3,1);
 }
 html{scroll-behavior:smooth;overflow-x:hidden}
-html, body { height: 100%; }
+html, body { height: auto; min-height: 100%; }
 body{background:var(--bg);color:var(--t);font-family:var(--fb);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
 
 /* GRAIN */
@@ -316,7 +316,6 @@ footer{padding:60px 52px 40px;border-top:.5px solid var(--b);background:var(--bg
 
   /* contain every section horizontally */
   section,footer,.trust{overflow-x:hidden}
-  section,#hero,#services,#work,#testimonials,#about,#process,#contact{scroll-margin-top:80px;}
 
   /* HERO */
   .hero{padding:52px 22px 56px;min-height:auto}
@@ -1051,3 +1050,15 @@ if ('ResizeObserver' in window) {
 </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
