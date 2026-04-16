@@ -1003,15 +1003,34 @@ document.getElementById('sheetForm').addEventListener('submit',async function(e)
   this.style.display='none';
   document.getElementById('thankYouSheet').style.display='block';
 });
+
+// SMOOTH SCROLL
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'})}
+  });
+});
 </script>
 
-  <script>
-function notifyHeight(){
-  const h = document.documentElement.scrollHeight;
-  window.parent.postMessage({type:'setHeight',height:h},'*');
+<script>
+function notifyHeight() {
+  const h = Math.max(
+    document.body.scrollHeight,
+    document.documentElement.scrollHeight,
+    document.body.offsetHeight,
+    document.documentElement.offsetHeight,
+    document.documentElement.clientHeight
+  );
+  window.parent.postMessage({ type: 'setHeight', height: h }, '*');
 }
+
 window.addEventListener('load', notifyHeight);
 window.addEventListener('resize', notifyHeight);
+
+setTimeout(notifyHeight, 300);
+setTimeout(notifyHeight, 1000);
+setTimeout(notifyHeight, 2000);
 </script>
 </body>
 </html>
