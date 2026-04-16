@@ -1008,8 +1008,11 @@ document.getElementById('sheetForm').addEventListener('submit',async function(e)
 // SMOOTH SCROLL
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
   a.addEventListener('click',e=>{
-    const t=document.querySelector(a.getAttribute('href'));
-    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'})}
+    e.preventDefault();
+    const id = a.getAttribute('href').replace('#','');
+    const target = document.getElementById(id);
+    if(!target) return;
+    window.parent.postMessage({type:'scrollTo', y: target.offsetTop},'*');
   });
 });
 </script>
