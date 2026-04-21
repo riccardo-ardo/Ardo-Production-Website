@@ -1057,7 +1057,7 @@ let busy = false;
 
 function navigate(id, withFlash=false){
   if(id === 'work'){
-    window.parent.location.href = 'https://www.ardoproductions.com/pro-filter-gallery';
+    window.parent.location.href = 'https://ardo-production-website.vercel.app/index2.html';
     return;
   }
   if(id === current || busy) return;
@@ -1185,7 +1185,7 @@ document.getElementById('desktopForm').addEventListener('submit', async function
   btn.textContent = 'Sending...';
   btn.disabled = true;
   try{
-    await fetch(this.action, { method:'POST', body:new FormData(this), headers:{Accept:'application/json'} });
+    await fetch(this.action, { method:'POST', body:new FormData(this), headers:{Accept:'lication/json'} });
   } catch(err){}
   this.style.display = 'none';
   document.getElementById('thankYouDesktop').style.display = 'block';
