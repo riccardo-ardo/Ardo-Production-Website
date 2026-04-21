@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+<title>Ardo Productions | Work</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@300;400;500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#06060a;
+  --bg2:#0d0d14;
+  --bg3:#12121c;
+  --s:rgba(255,255,255,0.04);
+  --sh:rgba(255,255,255,0.08);
+  --b:rgba(255,255,255,0.07);
+  --bb:rgba(255,255,255,0.14);
+  --t:#f0ede8;
+  --tm:rgba(240,237,232,0.55);
+  --td:rgba(240,237,232,0.32);
+  --accent:#a78bfa;
+  --cyan:#22d3ee;
+  --ld:rgba(167,139,250,0.15);
+  --lg:rgba(167,139,250,0.08);
+  --fd:'Syne',sans-serif;
+  --fi:'Instrument Serif',serif;
+  --fb:'DM Sans',sans-serif;
+  --fm:'DM Mono',monospace;
+  --nav-h:68px;
+  --ease:cubic-bezier(0.16,1,0.3,1);
+}
+
+html{cursor:none;scroll-behavior:smooth}
+body{
+  width:100%;min-height:100vh;
+  background:var(--bg);
+  color:var(--t);
+  font-family:var(--fb);
+  font-size:16px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+/* ===================== GRAIN ===================== */
+body::after{
+  content:'';position:fixed;inset:0;
+  pointer-events:none;z-index:9000;opacity:.25;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+}
+
+/* ===================== ORBS ===================== */
+.orbs{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.orb{position:absolute;border-radius:50%;filter:blur(90px)}
+.o1{width:600px;height:600px;background:radial-gradient(circle,rgba(167,139,250,.12) 0%,transparent 65%);top:-200px;left:-100px;animation:od 12s ease-in-out infinite}
+.o2{width:450px;height:450px;background:radial-gradient(circle,rgba(34,211,238,.08) 0%,transparent 65%);bottom:0;right:-80px;animation:od 10s ease-in-out infinite reverse}
+.o3{width:300px;height:300px;background:radial-gradient(circle,rgba(244,114,182,.06) 0%,transparent 65%);top:40%;left:45%;animation:od 14s ease-in-out infinite 3s}
+@keyframes od{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(-25px,-35px) scale(1.06)}66%{transform:translate(20px,18px) scale(.95)}}
+
+/* ===================== CUSTOM CURSOR ===================== */
+.cdot,.cring{position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);border-radius:50%}
+.cdot{
+  width:6px;height:6px;background:var(--accent);
+  transition:width .2s var(--ease),height .2s var(--ease),background .3s,opacity .3s;
+  mix-blend-mode:screen;
+}
+.cring{
+  width:36px;height:36px;
+  border:1.5px solid rgba(167,139,250,.35);
+  transition:width .5s var(--ease),height .5s var(--ease),border-color .35s,border-width .35s;
+}
+body.ch .cdot{width:10px;height:10px}
+body.ch .cring{width:52px;height:52px;border-color:rgba(34,211,238,.6)}
+body.cta-hover .cdot{width:4px;height:4px;opacity:.6}
+body.cta-hover .cring{width:68px;height:68px;border-color:rgba(167,139,250,.8);border-width:.5px}
+#cur-label{
+  position:fixed;z-index:9998;pointer-events:none;
+  transform:translate(-50%,-50%);
+  font-family:var(--fm);font-size:8px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--accent);opacity:0;transition:opacity .25s;white-space:nowrap;
+}
+body.cta-hover #cur-label{opacity:1}
+
+/* ===================== NAV — DESKTOP ===================== */
+.nav-d{
+  position:sticky;top:0;left:0;right:0;z-index:500;
+  height:var(--nav-h);padding:0 52px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(6,6,10,.92);
+  backdrop-filter:blur(28px);-webkit-backdrop-filter:blur(28px);
+  border-bottom:.5px solid var(--b);
+}
+.logo-d{
+  font-family:var(--fd);font-size:18px;font-weight:800;
+  letter-spacing:-.02em;color:var(--t);text-decoration:none;cursor:pointer;
+}
+.logo-d span{color:var(--accent)}
+
+.nav-links{display:flex;align-items:center;gap:4px;list-style:none;position:relative}
+.nav-links li a{
+  font-size:13px;font-weight:500;color:var(--tm);text-decoration:none;
+  letter-spacing:.02em;transition:color .25s;
+  padding:8px 16px;border-radius:999px;
+  position:relative;z-index:1;cursor:pointer;display:block;
+}
+.nav-links li a:hover{color:var(--t)}
+.nav-links li a.active{color:var(--t)}
+/* sliding pill */
+.nav-pill{
+  position:absolute;height:34px;border-radius:999px;
+  background:var(--s);border:.5px solid var(--b);
+  transition:left .45s var(--ease),width .45s var(--ease);
+  top:50%;transform:translateY(-50%);
+  z-index:0;pointer-events:none;
+}
+.nav-r{display:flex;align-items:center;gap:16px}
+.avail-pill{
+  display:flex;align-items:center;gap:7px;
+  padding:6px 14px;border-radius:999px;
+  background:rgba(167,139,250,.06);border:.5px solid rgba(167,139,250,.2);
+  font-family:var(--fm);font-size:11px;color:var(--accent);letter-spacing:.08em;
+}
+.avail-dot{
+  width:6px;height:6px;border-radius:50%;
+  background:var(--accent);box-shadow:0 0 8px var(--accent);
+  animation:pulse 2.4s ease-in-out infinite;
+}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.75)}}
+.btn-nav{
+  padding:10px 22px;border-radius:999px;
+  background:linear-gradient(135deg,#a78bfa,#22d3ee);
+  color:#06060a;font-family:var(--fd);font-size:12px;font-weight:700;
+  letter-spacing:.05em;border:none;cursor:pointer;
+  transition:transform .25s var(--ease),box-shadow .25s;
+  box-shadow:0 0 20px rgba(167,139,250,.3);
+}
+.btn-nav:hover{transform:translateY(-2px);box-shadow:0 6px 28px rgba(167,139,250,.5)}
+
+/* ===================== NAV — MOBILE ===================== */
+.nav-m{
+  display:none;position:sticky;top:0;left:0;right:0;z-index:500;
+  height:60px;padding:0 22px;
+  align-items:center;justify-content:space-between;
+  background:rgba(6,6,10,.97);
+  backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
+  border-bottom:.5px solid var(--b);
+}
+.logo-m{
+  font-family:var(--fd);font-size:17px;font-weight:800;
+  color:var(--t);letter-spacing:-.02em;cursor:pointer;
+  text-decoration:none;
+}
+.logo-m span{color:var(--accent)}
+/* hamburger */
+.mbtn{
+  width:44px;height:44px;border-radius:12px;
+  background:var(--s);border:.5px solid var(--bb);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:5px;cursor:pointer;
+}
+.mbtn span{display:block;width:20px;height:1.5px;background:var(--t);border-radius:2px;transition:transform .4s var(--ease),opacity .3s,width .3s}
+.mbtn.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.mbtn.open span:nth-child(2){opacity:0;width:0}
+.mbtn.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+
+/* mobile drawer */
+.mmenu{
+  position:fixed;inset:0;z-index:400;
+  background:rgba(6,6,10,.98);backdrop-filter:blur(40px);-webkit-backdrop-filter:blur(40px);
+  display:flex;flex-direction:column;padding:90px 32px 48px;
+  transform:translateX(100%);transition:transform .6s var(--ease);overflow-y:auto;
+}
+.mmenu.open{transform:none}
+.mmenu-links{display:flex;flex-direction:column;gap:0;margin-bottom:40px}
+.mmenu-links a{
+  font-family:var(--fd);font-size:clamp(2.2rem,10vw,3rem);font-weight:800;
+  color:var(--t);text-decoration:none;letter-spacing:-.04em;line-height:1.1;
+  padding:14px 0;border-bottom:.5px solid var(--b);
+  display:flex;align-items:center;justify-content:space-between;
+  opacity:0;transform:translateX(40px);
+  transition:color .2s,opacity .5s var(--ease),transform .5s var(--ease);
+  cursor:pointer;
+}
+.mmenu.open .mmenu-links a{opacity:1;transform:none}
+.mmenu.open .mmenu-links a:nth-child(1){transition-delay:.08s}
+.mmenu.open .mmenu-links a:nth-child(2){transition-delay:.13s}
+.mmenu.open .mmenu-links a:nth-child(3){transition-delay:.18s}
+.mmenu.open .mmenu-links a:nth-child(4){transition-delay:.23s}
+.mmenu.open .mmenu-links a:nth-child(5){transition-delay:.28s}
+.mmenu.open .mmenu-links a:nth-child(6){transition-delay:.33s}
+.mmenu-links a:hover{color:var(--accent)}
+.mmenu-links a .arr{font-size:1.3rem;opacity:.35}
+.mmenu-bot{
+  margin-top:auto;
+  opacity:0;transform:translateY(20px);
+  transition:opacity .5s var(--ease) .38s,transform .5s var(--ease) .38s;
+}
+.mmenu.open .mmenu-bot{opacity:1;transform:none}
+.btn-mcta{
+  display:flex;align-items:center;justify-content:center;padding:18px;
+  border-radius:16px;background:linear-gradient(135deg,#a78bfa,#22d3ee);
+  color:#06060a;font-family:var(--fd);font-size:15px;font-weight:700;
+  text-decoration:none;cursor:pointer;border:none;width:100%;
+}
+
+/* ===================== GALLERY BODY ===================== */
+.gallery-body{
+  position:relative;z-index:1;
+  width:100%;
+  min-height:calc(100vh - var(--nav-h));
+  padding:60px 52px 80px;
+}
+
+/* page eyebrow */
+.g-eyebrow{
+  display:inline-flex;align-items:center;gap:10px;margin-bottom:24px;
+  font-family:var(--fm);font-size:11px;font-weight:400;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--accent);
+}
+.g-eyebrow::before{content:'';width:28px;height:1px;background:var(--accent)}
+
+/* page title */
+.g-title{
+  font-family:var(--fd);font-size:clamp(2.4rem,4vw,4rem);font-weight:800;
+  letter-spacing:-.055em;line-height:.9;color:var(--t);margin-bottom:14px;
+}
+.g-title em{
+  font-style:italic;font-family:var(--fi);font-weight:400;
+  color:var(--accent);letter-spacing:-.02em;
+}
+
+/* page sub */
+.g-sub{
+  font-size:15px;color:var(--tm);line-height:1.75;
+  max-width:520px;margin-bottom:48px;font-weight:300;
+}
+
+/* divider */
+.g-divider{
+  width:100%;height:.5px;
+  background:var(--b);
+  margin-bottom:48px;
+}
+
+/* ===================== GALLERY SLOT ===================== */
+/* Drop your Wix gallery/content inside .gallery-slot */
+.gallery-slot{
+  width:100%;
+  min-height:400px;
+  /* placeholder visual — remove once you add your gallery */
+  border:.5px dashed rgba(167,139,250,.15);
+  border-radius:16px;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--td);
+  font-family:var(--fm);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+}
+
+/* ===================== FOOTER ===================== */
+.site-footer{
+  position:relative;z-index:1;
+  border-top:.5px solid var(--b);
+  padding:32px 52px 28px;
+  display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;
+  margin-top:80px;
+}
+.fbrand .flogo{
+  font-family:var(--fd);font-size:16px;font-weight:800;
+  color:var(--t);letter-spacing:-.03em;display:block;
+  margin-bottom:10px;text-decoration:none;cursor:pointer;
+}
+.fbrand .flogo span{color:var(--accent)}
+.fbrand p{font-size:12px;color:var(--td);line-height:1.6;max-width:240px}
+.fnav h4{
+  font-family:var(--fm);font-size:10px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--td);margin-bottom:14px;
+}
+.fnav ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.fnav a{font-size:13px;color:var(--tm);text-decoration:none;transition:color .2s;cursor:pointer}
+.fnav a:hover{color:var(--accent)}
+.foot-bot{
+  grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;
+  padding-top:20px;border-top:.5px solid var(--b);
+}
+.fcopy,.floc{font-family:var(--fm);font-size:10px;color:var(--td);letter-spacing:.08em}
+
+/* ===================== MOBILE ===================== */
+@media(max-width:767px){
+  html{cursor:auto}
+  .cdot,.cring,#cur-label{display:none!important}
+  .nav-d{display:none!important}
+  .nav-m{display:flex}
+  .gallery-body{padding:36px 20px 60px;min-height:calc(100dvh - 60px)}
+  .g-title{font-size:clamp(2rem,10vw,2.8rem)}
+  .site-footer{grid-template-columns:1fr;gap:24px;padding:28px 20px 24px}
+  .foot-bot{flex-direction:column;gap:8px;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div class="cdot" id="cdot"></div>
+<div class="cring" id="cring"></div>
+<div id="cur-label">GO</div>
+
+<!-- AMBIENT ORBS -->
+<div class="orbs">
+  <div class="orb o1"></div>
+  <div class="orb o2"></div>
+  <div class="orb o3"></div>
+</div>
+
+<!-- ==================== DESKTOP NAV ==================== -->
+<nav class="nav-d">
+  <a class="logo-d" onclick="goTo('home')">ARDO<span>.</span></a>
+  <ul class="nav-links" id="navLinks">
+    <div class="nav-pill" id="navPill"></div>
+    <li><a class="nav-link" data-page="home"     onclick="goTo('home')">Home</a></li>
+    <li><a class="nav-link" data-page="services" onclick="goTo('services')">Services</a></li>
+    <li><a class="nav-link active" data-page="work" onclick="goTo('work')">Work</a></li>
+    <li><a class="nav-link" data-page="about"    onclick="goTo('about')">About</a></li>
+    <li><a class="nav-link" data-page="process"  onclick="goTo('process')">Process</a></li>
+    <li><a class="nav-link" data-page="contact"  onclick="goTo('contact')">Contact</a></li>
+  </ul>
+  <div class="nav-r">
+    <div class="avail-pill"><div class="avail-dot"></div>Available for projects</div>
+    <button class="btn-nav" onclick="goTo('contact')">Start a Project</button>
+  </div>
+</nav>
+
+<!-- ==================== MOBILE NAV ==================== -->
+<div class="nav-m" id="navm">
+  <a class="logo-m" onclick="goTo('home')">ARDO<span>.</span></a>
+  <div class="mbtn" id="mbtn" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</div>
+
+<!-- MOBILE DRAWER -->
+<div class="mmenu" id="mmenu">
+  <div class="mmenu-links">
+    <a onclick="goTo('home')">Home <span class="arr">↗</span></a>
+    <a onclick="goTo('services')">Services <span class="arr">↗</span></a>
+    <a onclick="goTo('work')" style="color:var(--accent)">Work <span class="arr">↗</span></a>
+    <a onclick="goTo('about')">About <span class="arr">↗</span></a>
+    <a onclick="goTo('process')">Process <span class="arr">↗</span></a>
+    <a onclick="goTo('contact')">Contact <span class="arr">↗</span></a>
+  </div>
+  <div class="mmenu-bot">
+    <button class="btn-mcta" onclick="goTo('contact')">Start a Project →</button>
+  </div>
+</div>
+
+<!-- ==================== GALLERY BODY ==================== -->
+<main class="gallery-body">
+
+  <div class="g-eyebrow">Our Work — Selected Projects</div>
+  <h1 class="g-title">Built to be<br><em>remembered.</em></h1>
+  <p class="g-sub">A selection of brand environments, digital experiences, and cinematic outputs crafted across physical and digital disciplines.</p>
+  <div class="g-divider"></div>
+
+  <!-- ================================================
+       DROP YOUR WIX GALLERY / CONTENT IN HERE
+       ================================================ -->
+  <div class="gallery-slot">
+    Your gallery goes here
+  </div>
+  <!-- ================================================ -->
+
+</main>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="site-footer">
+  <div class="fbrand">
+    <a class="flogo" onclick="goTo('home')">ARDO<span>.</span></a>
+    <p>Premium creative studio spanning physical brand environments and custom digital experiences. Johannesburg, South Africa.</p>
+  </div>
+  <div class="fnav">
+    <h4>Studio</h4>
+    <ul>
+      <li><a onclick="goTo('home')">Home</a></li>
+      <li><a onclick="goTo('services')">Services</a></li>
+      <li><a onclick="goTo('work')">Work</a></li>
+      <li><a onclick="goTo('about')">About</a></li>
+      <li><a onclick="goTo('process')">Process</a></li>
+      <li><a onclick="goTo('contact')">Contact</a></li>
+    </ul>
+  </div>
+  <div class="fnav">
+    <h4>Disciplines</h4>
+    <ul>
+      <li><a onclick="goTo('services')">Brand Activations</a></li>
+      <li><a onclick="goTo('services')">Expo Stand Design</a></li>
+      <li><a onclick="goTo('services')">3D Rendering</a></li>
+      <li><a onclick="goTo('services')">Website Design</a></li>
+      <li><a onclick="goTo('services')">Wix App Development</a></li>
+    </ul>
+  </div>
+  <div class="foot-bot">
+    <div class="fcopy">© 2025 Ardo Productions. All rights reserved.</div>
+    <div class="floc">📍 Johannesburg, South Africa</div>
+  </div>
+</footer>
+
+<script>
+/* ============================================================
+   NAVIGATION — links back to the main ardo-v6 app
+   ============================================================
+   HOW TO USE:
+   Replace 'YOUR_MAIN_APP_URL' below with the actual URL of your
+   ardo-v6 embedded HTML page on Wix. Each section will navigate
+   to that page and trigger the correct view via a hash or query.
+
+   If both files are embedded iframes on the SAME Wix page,
+   use postMessage to communicate between them instead —
+   see the postMessage block at the bottom.
+   ============================================================ */
+
+const MAIN_URL = 'YOUR_MAIN_APP_URL'; // ← replace with your ardo-v6 page URL
+
+function goTo(section){
+  if(section === 'work'){
+    // already on this page — scroll to top
+    window.scrollTo({top:0,behavior:'smooth'});
+    closeMenu();
+    return;
+  }
+  // Navigate parent window (Wix) to main app page with section hash
+  try{
+    window.parent.location.href = MAIN_URL + '#' + section;
+  } catch(e){
+    // fallback: direct navigation
+    window.location.href = MAIN_URL + '#' + section;
+  }
+}
+
+/* ============================================================
+   MOBILE MENU
+   ============================================================ */
+function toggleMenu(){
+  const mbtn = document.getElementById('mbtn');
+  const mmenu = document.getElementById('mmenu');
+  const open = mbtn.classList.toggle('open');
+  mmenu.classList.toggle('open', open);
+  document.body.style.overflow = open ? 'hidden' : '';
+}
+function closeMenu(){
+  document.getElementById('mbtn').classList.remove('open');
+  document.getElementById('mmenu').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+/* ============================================================
+   NAV PILL — highlight "Work" on load
+   ============================================================ */
+function movePill(page){
+  const pill = document.getElementById('navPill');
+  const link = document.querySelector('.nav-link[data-page="'+page+'"]');
+  const list = document.getElementById('navLinks');
+  if(!pill||!link||!list) return;
+  const lr = link.getBoundingClientRect();
+  const pr = list.getBoundingClientRect();
+  pill.style.left  = (lr.left - pr.left) + 'px';
+  pill.style.width = lr.width + 'px';
+}
+window.addEventListener('load', () => setTimeout(() => movePill('work'), 120));
+
+/* ============================================================
+   CURSOR
+   ============================================================ */
+const cdot = document.getElementById('cdot');
+const cring = document.getElementById('cring');
+const curLbl = document.getElementById('cur-label');
+
+if(window.matchMedia('(pointer:fine)').matches){
+  let mx=0, my=0, rx=0, ry=0;
+  document.addEventListener('mousemove', e => {
+    mx=e.clientX; my=e.clientY;
+    cdot.style.left=mx+'px'; cdot.style.top=my+'px';
+  });
+  (function loop(){
+    rx += (mx-rx)*0.11; ry += (my-ry)*0.11;
+    cring.style.left=rx+'px'; cring.style.top=ry+'px';
+    curLbl.style.left=rx+'px'; curLbl.style.top=(ry-36)+'px';
+    requestAnimationFrame(loop);
+  })();
+
+  document.querySelectorAll('a,button,.fnav a').forEach(el=>{
+    el.addEventListener('mouseenter',()=>document.body.classList.add('ch'));
+    el.addEventListener('mouseleave',()=>document.body.classList.remove('ch'));
+  });
+  document.querySelectorAll('.btn-nav,.btn-mcta').forEach(el=>{
+    el.addEventListener('mouseenter',()=>{
+      document.body.classList.remove('ch');
+      document.body.classList.add('cta-hover');
+    });
+    el.addEventListener('mouseleave',()=>document.body.classList.remove('cta-hover'));
+  });
+}
+</script>
+</body>
+</html>
