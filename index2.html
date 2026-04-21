@@ -256,34 +256,6 @@ body.cta-hover #cur-label{opacity:1}
   font-family:var(--fm);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
 }
 
-/* ===================== FOOTER ===================== */
-.site-footer{
-  position:relative;z-index:1;
-  border-top:.5px solid var(--b);
-  padding:32px 52px 28px;
-  display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;
-  margin-top:80px;
-}
-.fbrand .flogo{
-  font-family:var(--fd);font-size:16px;font-weight:800;
-  color:var(--t);letter-spacing:-.03em;display:block;
-  margin-bottom:10px;text-decoration:none;cursor:pointer;
-}
-.fbrand .flogo span{color:var(--accent)}
-.fbrand p{font-size:12px;color:var(--td);line-height:1.6;max-width:240px}
-.fnav h4{
-  font-family:var(--fm);font-size:10px;letter-spacing:.2em;
-  text-transform:uppercase;color:var(--td);margin-bottom:14px;
-}
-.fnav ul{list-style:none;display:flex;flex-direction:column;gap:9px}
-.fnav a{font-size:13px;color:var(--tm);text-decoration:none;transition:color .2s;cursor:pointer}
-.fnav a:hover{color:var(--accent)}
-.foot-bot{
-  grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;
-  padding-top:20px;border-top:.5px solid var(--b);
-}
-.fcopy,.floc{font-family:var(--fm);font-size:10px;color:var(--td);letter-spacing:.08em}
-
 /* ===================== MOBILE ===================== */
 @media(max-width:767px){
   html{cursor:auto}
@@ -292,7 +264,7 @@ body.cta-hover #cur-label{opacity:1}
   .nav-m{display:flex}
   .gallery-body{padding:36px 20px 60px;min-height:calc(100dvh - 60px)}
   .g-title{font-size:clamp(2rem,10vw,2.8rem)}
-  .site-footer{grid-template-columns:1fr;gap:24px;padding:28px 20px 24px}
+  .site-{grid-template-columns:1fr;gap:24px;padding:28px 20px 24px}
   .foot-bot{flex-direction:column;gap:8px;text-align:center}
 }
 </style>
@@ -369,41 +341,7 @@ body.cta-hover #cur-label{opacity:1}
   <!-- ================================================ -->
 
 </main>
-
-<!-- ==================== FOOTER ==================== -->
-<footer class="site-footer">
-  <div class="fbrand">
-    <a class="flogo" onclick="goTo('home')">ARDO<span>.</span></a>
-    <p>Premium creative studio spanning physical brand environments and custom digital experiences. Johannesburg, South Africa.</p>
-  </div>
-  <div class="fnav">
-    <h4>Studio</h4>
-    <ul>
-      <li><a onclick="goTo('home')">Home</a></li>
-      <li><a onclick="goTo('services')">Services</a></li>
-      <li><a onclick="goTo('work')">Work</a></li>
-      <li><a onclick="goTo('about')">About</a></li>
-      <li><a onclick="goTo('process')">Process</a></li>
-      <li><a onclick="goTo('contact')">Contact</a></li>
-    </ul>
-  </div>
-  <div class="fnav">
-    <h4>Disciplines</h4>
-    <ul>
-      <li><a onclick="goTo('services')">Brand Activations</a></li>
-      <li><a onclick="goTo('services')">Expo Stand Design</a></li>
-      <li><a onclick="goTo('services')">3D Rendering</a></li>
-      <li><a onclick="goTo('services')">Website Design</a></li>
-      <li><a onclick="goTo('services')">Wix App Development</a></li>
-    </ul>
-  </div>
-  <div class="foot-bot">
-    <div class="fcopy">© 2025 Ardo Productions. All rights reserved.</div>
-    <div class="floc">📍 Johannesburg, South Africa</div>
-  </div>
-</footer>
-
-<script>
+  
 /* ============================================================
    NAVIGATION — links back to the main ardo-v6 app
    ============================================================
